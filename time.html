@@ -1,0 +1,60 @@
+<html>
+<head>
+<title>Time Example</title>
+<style>
+#clock
+{
+background-color:#000;
+color:#0FF;
+border:#999 2px inset;
+letter-spacing:2px;
+padding:5px;
+display:inline;
+font-weight:bold;
+font-size:16px;
+font-family:Times New Roman;
+}
+
+</style>
+</head>
+<body>
+<div id="clock">07:05:12 PM</div>
+<script type="text/javascript">
+function renderTime()
+{
+var date = new Date();	
+var AM_PM = "AM";
+var hour = date.getHours();
+var mins = date.getMinutes();
+var sec = date.getSeconds();
+
+if(hour < 10)
+{
+hour = "0" + hours;
+}
+if(mins < 10)
+{
+mins = "0" + mins;
+}
+if(sec < 10)
+{
+sec = "0" + sec;
+}
+
+if(AM_PM == 0)
+	{
+	hour = 12;
+	}
+else if(hour > 12)
+	{
+	hour = hour - 12;
+	AM_PM = "PM"
+	}
+var clock = document.getElementById('clock');
+clock.textContent = hour+":"+mins+":"+sec+" "+AM_PM;
+setTimeout('renderTime()',1000);
+}
+renderTime();
+</script>
+</body>
+</html>
